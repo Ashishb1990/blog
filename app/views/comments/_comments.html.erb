@@ -1,0 +1,9 @@
+<h3>Comments</h3>
+<% commentable.comments.order(created_at: "DESC").each do |comment| %>
+
+  <div class="well">
+  
+    <%= comment.user.email.split('@')[0] %> comment:<br> 
+    <%= comment.body %>
+  </div>
+<% end %>

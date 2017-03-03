@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :blogs
+  root 'home#index' do
+    resources :comments, module: :blogs
+  end
+  resources :blogs do
+    resources :comments, module: :blogs
+  end
+
   devise_for :users
-  root 'home#index'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
