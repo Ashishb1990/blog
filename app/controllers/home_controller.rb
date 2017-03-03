@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   
   def index
-    byebug  
+      
   	if params[:search].present?
   	  @blogs = Blog.where(" title LIKE ? OR description LIKE ?", params[:search],params[:search])
     
